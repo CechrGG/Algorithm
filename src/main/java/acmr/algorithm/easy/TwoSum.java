@@ -3,6 +3,8 @@ package acmr.algorithm.easy;
 import java.util.HashMap;
 import java.util.Map;
 
+import acmr.algorithm.util.Tools;
+
 /**
 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
 
@@ -46,21 +48,12 @@ public class TwoSum {
 		}
 		return ret;
 	}
-	
-	public static String toString(int[] ret) {
-		StringBuilder sb = new StringBuilder();
-		for(int i = 0; i < ret.length - 1; i++) {
-			sb.append(ret[i] + ",");
-		}
-		sb.append(ret[ret.length - 1]);
-		return sb.toString();
-	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] nums = {1,4,3,2,5};
-		System.out.println(TwoSum.toString(TwoSum.twoSum(nums, 8)));
-		System.out.println(TwoSum.toString(TwoSum.twoSum2(nums, 8)));
+		System.out.println(Tools.arrayToString(TwoSum.twoSum(nums, 8)));
+		System.out.println(Tools.arrayToString(TwoSum.twoSum2(nums, 8)));
 	}
 
 }
