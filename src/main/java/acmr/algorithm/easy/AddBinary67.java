@@ -32,6 +32,57 @@ public class AddBinary67 {
     public static String addBinary(String a, String b) {
     	return new BigInteger(a, 2).add(new BigInteger(b, 2)).toString(2);
     }
+    
+    public static String addBinary2(String a, String  b) {
+    	int length = Math.max(a.length(), b.length());
+    	if(length != a.length()) {
+    		StringBuffer sb = new StringBuffer("");
+    		for(int i = 0; i < length - a.length(); i++) {
+    			sb.append('0');
+    		}
+    		sb.append(a);
+    		a = sb.toString();
+    	}
+    	if(length != b.length()) {
+    		StringBuffer sb = new StringBuffer("");
+    		for(int i = 0; i < length - b.length(); i++) {
+    			sb.append('0');
+    		}
+    		sb.append(b);
+    		b = sb.toString();
+    	}
+    	boolean carry = false;
+    	StringBuilder sb = new StringBuilder();
+    	for( int i = length; i >= 1; i--) {
+    		int ca = Integer.valueOf(a.substring(i-1, i));
+    		int cb = Integer.valueOf(b.substring(i-1, i));
+    		int ret = 0;
+    		if(!carry) {
+	    		if((ca & cb) == 1) {
+	    			carry = true;
+	    		} else {
+	    			ret = ca + cb;
+	    		}
+    		} else {
+    			if((ca | cb) == 0) {
+    				carry = false;
+    				ret = 1;
+    			} else {
+    				carry = true;
+    				if((ca & cb) == 1) {
+    					ret = 1;
+    				} else {
+    					ret = 0;
+    				}
+    			}
+    		}
+    		sb.insert(0, ret);
+    	}
+    	if(carry) {
+    		sb.insert(0, 1);
+    	}
+    	return sb.toString();
+    }
 
 	/**
 	 * @param args
@@ -39,7 +90,8 @@ public class AddBinary67 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(new BigInteger("110", 2).toString());
-		System.out.println(AddBinary67.addBinary("1010", "1011"));
+		System.out.println(AddBinary67.addBinary("1110", "11"));
+		System.out.println(AddBinary67.addBinary2("1110", "11"));
 	}
 
 }

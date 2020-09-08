@@ -3,6 +3,8 @@
  */
 package acmr.algorithm.easy;
 
+import acmr.algorithm.common.ListNode;
+
 /**
  * @author guoguo
  * @date 2020年8月14日
@@ -19,17 +21,6 @@ package acmr.algorithm.easy;
 	著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class MergeLists {
-	
-	/**
-	 * Definition for singly-linked list.
-	 */
-	public static class ListNode {
-		int val;
-		ListNode next;
-		ListNode() {}
-		ListNode(int val) { this.val = val; }
-		ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-	}
 	
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
     	if(l1 == null) {
