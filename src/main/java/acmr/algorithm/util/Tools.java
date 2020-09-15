@@ -78,6 +78,21 @@ public class Tools {
 		}
 	}
 	
+	/**
+	 * 前序打印二叉树
+	 * @param tree
+	 */
+	public static void printPreTree(TreeNode tree) {
+		if(tree == null) {
+//			System.out.print("null,");
+			return;
+		} else {
+			System.out.print(tree.val + ",");
+			printPreTree(tree.left);
+			printPreTree(tree.right);
+		}
+	}
+	
 
 	/**
 	 * @param args
