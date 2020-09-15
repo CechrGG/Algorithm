@@ -1,7 +1,7 @@
 /**
  * 
  */
-package acmr.algorithm.easy;
+package acmr.algorithm.easy.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
