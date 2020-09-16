@@ -4,6 +4,7 @@
 package acmr.algorithm.util;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 import acmr.algorithm.common.TreeNode;
@@ -27,6 +28,23 @@ public class Tools {
 		}
 		sb.append(ret[ret.length - 1]);
 		return sb.toString();
+	}
+	
+	public static <T> void printArray2(List<List<T>> list) {
+		System.out.println("[");
+		for(List<T> arr : list) {
+			System.out.print("\t[");
+			for(int i = 0; i < arr.size(); i++) {
+				T obj = arr.get(i);
+				if(i == arr.size() - 1) {
+					System.out.print(obj);
+				} else {
+					System.out.print(obj + ",");
+				}
+			}
+			System.out.println("]");
+		}
+		System.out.println("]");
 	}
 	
 	/**
