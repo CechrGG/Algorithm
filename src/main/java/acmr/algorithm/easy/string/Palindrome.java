@@ -1,4 +1,4 @@
-package acmr.algorithm.easy;
+package acmr.algorithm.easy.string;
 
 /**
  * @author guoguo
