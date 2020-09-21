@@ -1,7 +1,7 @@
 /**
  * 
  */
-package acmr.algorithm.easy;
+package acmr.algorithm.easy.dynamicpro;
 
 /**
  * @author guoguo

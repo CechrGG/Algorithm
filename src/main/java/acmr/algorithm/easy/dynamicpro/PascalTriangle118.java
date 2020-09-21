@@ -1,7 +1,7 @@
 /**
  * 
  */
-package acmr.algorithm.easy;
+package acmr.algorithm.easy.dynamicpro;
 
 import java.util.ArrayList;
 import java.util.List;
