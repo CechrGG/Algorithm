@@ -30,6 +30,18 @@ public class Tools {
 		return sb.toString();
 	}
 	
+	public static <T> void printArray(List<T> list) {
+		System.out.print("[");
+		for(int i = 0; i < list.size(); i++) {
+			T obj = list.get(i);
+			if(i == list.size() - 1) {
+				System.out.print(obj + "]");
+			} else {
+				System.out.print(obj + ",");
+			}
+		}
+	}
+	
 	public static <T> void printArray2(List<List<T>> list) {
 		System.out.println("[");
 		for(List<T> arr : list) {

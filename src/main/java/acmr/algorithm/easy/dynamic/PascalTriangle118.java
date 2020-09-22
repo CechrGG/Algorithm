@@ -13,7 +13,7 @@ import acmr.algorithm.util.Tools;
  * @date 2020年9月21日
  * @description PascalTriangle118
  * 
- * 	给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。
+ * 	118.给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。
 	在杨辉三角中，每个数是它左上方和右上方的数的和。
 	
 	示例:
@@ -27,6 +27,14 @@ import acmr.algorithm.util.Tools;
 	  [1,3,3,1],
 	 [1,4,6,4,1]
 	]
+	
+	119.给定一个非负索引 k，其中 k ≤ 33，返回杨辉三角的第 k 行。
+	在杨辉三角中，每个数是它左上方和右上方的数的和。
+	
+	示例:
+	
+	输入: 3
+	输出: [1,3,3,1]
 	
 	来源：力扣（LeetCode）
 	链接：https://leetcode-cn.com/problems/pascals-triangle
@@ -56,12 +64,36 @@ public class PascalTriangle118 {
     	}
     	return triangle;
     }
+    
+    public static List<Integer> getRow(int rowIndex) {
+    	List<Integer> rowPre = new ArrayList<Integer>();
+    	if(rowIndex < 0) {
+    		return new ArrayList<Integer>();
+    	}
+    	for(int i = 0; i <= rowIndex; i++) {
+    		List<Integer> row = new ArrayList<Integer>();
+    		if(i == 0) {
+    			row.add(1);
+    			rowPre = row;
+    		} else {
+    			row.add(1);
+    			for(int j = 0; j < rowPre.size() - 1; j++) {
+    				row.add(rowPre.get(j) + rowPre.get(j+1));
+    			}
+    			row.add(1);
+    			rowPre = row;
+    		}
+    	}
+    	return rowPre;
+    }
+    
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Tools.printArray2(PascalTriangle118.generate(10));
+		Tools.printArray(PascalTriangle118.getRow(3));
 	}
 
 }
