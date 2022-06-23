@@ -131,6 +131,60 @@ public class ValidSudoku36 {
         return true;
     }
 
+    public static boolean isValidSudoku2(char[][] board) {
+        if(board.length != 9) {
+            return false;
+        }
+        Set<Character> nums = new HashSet<Character>() {
+            {
+                add('1');
+                add('2');
+                add('3');
+                add('4');
+                add('5');
+                add('6');
+                add('7');
+                add('8');
+                add('9');
+            }
+        };
+
+        int[][] rowNums = new int[9][9];
+        int[][] colNums = new int[9][9];
+        int[][][] matrix = new int[3][3][9];
+        for(int row = 0; row < board.length; row++) {
+            if(board[row].length != 9) {
+                return false;
+            }
+
+            for(int col = 0; col < board[row].length; col++) {
+                char value = board[row][col];
+                if(value == '.'){
+                    continue;
+                }
+                if(!nums.contains(value)) {
+                    System.out.println("非1-9");
+                    return false;
+                }
+                int index = value - '0' - 1;
+                rowNums[row][index]++;
+                if(rowNums[row][index] > 1) {
+                    return false;
+                }
+                colNums[index][col]++;
+                if(colNums[index][col] > 1) {
+                    return false;
+                }
+                matrix[row/3][col/3][index]++;
+                if(matrix[row/3][col/3][index] > 1) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
     public static void main(String[] args) {
         char[][] board =
                 {{'5','3','.','.','7','.','.','.','.'}
@@ -143,5 +197,6 @@ public class ValidSudoku36 {
                 ,{'.','.','.','4','1','9','.','.','5'}
                 ,{'.','.','.','.','8','.','.','7','9'}};
         System.out.println(isValidSudoku(board));
+        System.out.println(isValidSudoku2(board));
     }
 }
