@@ -198,5 +198,6 @@ public class ValidSudoku36 {
                 ,{'.','.','.','.','8','.','.','7','9'}};
         System.out.println(isValidSudoku(board));
         System.out.println(isValidSudoku2(board));
+        System.out.println("aaa" + null + "bbb");
     }
 }
