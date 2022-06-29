@@ -28,4 +28,14 @@ public class ListNode {
 	public void setNext(ListNode node) {
 		this.next = node;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("ListNode->" + val);
+		while (next != null) {
+			sb.append("->").append(next.val);
+			next = next.next;
+		}
+		return sb.toString();
+	}
 }
