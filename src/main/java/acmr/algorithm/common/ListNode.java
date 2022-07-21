@@ -31,10 +31,11 @@ public class ListNode {
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder("ListNode->" + val);
-		while (next != null) {
-			sb.append("->").append(next.val);
-			next = next.next;
+		StringBuilder sb = new StringBuilder("ListNode");
+		ListNode p = this;
+		while (p != null) {
+			sb.append("->").append(p.val);
+			p = p.next;
 		}
 		return sb.toString();
 	}
